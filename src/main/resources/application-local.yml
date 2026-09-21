@@ -1,0 +1,9 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+app:
+  admin:
+    email: "${BOOKSTORE_ADMIN_EMAIL:}"
+    password: "${BOOKSTORE_ADMIN_PASSWORD:}"
