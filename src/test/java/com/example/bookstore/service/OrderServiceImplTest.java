@@ -1,17 +1,11 @@
 package com.example.bookstore.service;
 
 import com.example.bookstore.dto.ApiDtos.CheckoutRequest;
-import com.example.bookstore.dto.ApiDtos.OrderItemResponse;
 import com.example.bookstore.dto.ApiDtos.OrderResponse;
 import com.example.bookstore.dto.ApiDtos.PaymentMethod;
 import com.example.bookstore.exception.ApiException;
 import com.example.bookstore.exception.InsufficientStockException;
-import com.example.bookstore.model.Book;
-import com.example.bookstore.model.Cart;
-import com.example.bookstore.model.OrderStatus;
-import com.example.bookstore.model.OrderItem;
-import com.example.bookstore.model.PurchaseOrder;
-import com.example.bookstore.model.UserAccount;
+import com.example.bookstore.model.*;
 import com.example.bookstore.payment.PaymentStrategy;
 import com.example.bookstore.payment.PaymentStrategyResolver;
 import com.example.bookstore.repository.BookRepository;
@@ -24,7 +18,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
@@ -33,22 +26,8 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
